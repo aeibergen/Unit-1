@@ -1,6 +1,7 @@
 //initialize city function called when the script loads
 function initialize(){
 	cities(); //calls the city function, defined below
+	debugAjax(); //calls the debug ajax function, defined below
 };
 
 
@@ -109,6 +110,26 @@ function addEvents(){
 	};
 	//attaches event handler clickme when the table is clicked
 	$('table').on('click', clickme);
+};
+
+//copied in debug_ajax
+
+function debugAjax(){
+	$.ajax("data/MegaCities.geojson", { //specifies where we are getting our data from
+		dataType: "json", //specifies the datatype so the data will display properly in the browser
+		success: debugCallback //call a callback function and pass the data to it
+		}
+	);
+	console.log(data) //data is not accessible here (when outside the callback function)
+};
+
+//callback function defined and recieves data here
+function debugCallback(data){
+	console.log(data); //data is accessible here (it is within the callback function)
+
+	var htmlString = "<p>GeoJSON data</p>"; //creates the string identifying the data
+	htmlString += JSON.stringify(data); //transfers the JSON data into a string
+	$("#mydiv").append("<p>"+htmlString+"</p>") //adds the string to the 
 };
 
 //call the initialize function when the document has loaded
