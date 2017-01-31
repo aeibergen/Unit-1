@@ -78,10 +78,8 @@ function addColumns(cityPop){
 };
 //
 function addEvents(){
-	console.log('hellow')
 	//activates the function when you mouse over the table
 	$('table').mouseover(function() {
-		console.log("hellow hellow")
 		//creates the variable color and starts a loop that prints to the console
 		var color = "rgb(";
 		//for loop that says for i (mouseover) less than three, add one and loop through to do the following:
@@ -103,7 +101,6 @@ function addEvents(){
 		};
 		//this uses css to change the color of the text in the table
 		$(this).css('color', color);
-		console.log(color)
 	}});
 	//function that alerts the user when clicked
 	function clickme(){
